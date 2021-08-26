@@ -1,6 +1,6 @@
-package com.revature.project2.repository;
+package com.revature.repository;
 
-import com.revature.project2.model.Portfolio;
+import com.revature.model.Portfolio;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
