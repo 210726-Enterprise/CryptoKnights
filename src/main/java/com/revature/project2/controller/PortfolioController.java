@@ -45,4 +45,10 @@ public class PortfolioController {
         service.deletePortfolio(Integer.parseInt(id));
         return ResponseEntity.ok(HttpStatus.OK);
     }
+
+    @PutMapping
+    public @ResponseBody
+    Portfolio updatePortfolio(@RequestBody Portfolio portfolio) {
+        return service.savePortfolio(portfolio);
+    }
 }
