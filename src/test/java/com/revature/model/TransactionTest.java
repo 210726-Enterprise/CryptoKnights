@@ -6,69 +6,86 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TransactionTest {
+class TransactionTest
+{
 
     @BeforeEach
-    void setUp() {
+    void setUp()
+    {
     }
 
     @AfterEach
-    void tearDown() {
+    void tearDown()
+    {
     }
 
     @Test
-    void getTransactionId() {
+    void getTransactionId()
+    {
     }
 
     @Test
-    void getPortfolio() {
+    void getPortfolio()
+    {
     }
 
     @Test
-    void getTransactionDateTime() {
+    void getTransactionDateTime()
+    {
     }
 
     @Test
-    void getTransactionInCurrency() {
+    void getTransactionInCurrency()
+    {
     }
 
     @Test
-    void getTransactionInAmount() {
+    void getTransactionInAmount()
+    {
     }
 
     @Test
-    void getTransactionOutCurrency() {
+    void getTransactionOutCurrency()
+    {
     }
 
     @Test
-    void getTransactionOutAmount() {
+    void getTransactionOutAmount()
+    {
     }
 
     @Test
-    void setTransactionId() {
+    void setTransactionId()
+    {
     }
 
     @Test
-    void setPortfolio() {
+    void setPortfolio()
+    {
     }
 
     @Test
-    void setTransactionDateTime() {
+    void setTransactionDateTime()
+    {
     }
 
     @Test
-    void setTransactionInCurrency() {
+    void setTransactionInCurrency()
+    {
     }
 
     @Test
-    void setTransactionInAmount() {
+    void setTransactionInAmount()
+    {
     }
 
     @Test
-    void setTransactionOutCurrency() {
+    void setTransactionOutCurrency()
+    {
     }
 
     @Test
-    void setTransactionOutAmount() {
+    void setTransactionOutAmount()
+    {
     }
 }
