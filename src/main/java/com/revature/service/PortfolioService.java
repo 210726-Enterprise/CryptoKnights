@@ -1,7 +1,7 @@
-package com.revature.project2.service;
+package com.revature.service;
 
-import com.revature.project2.model.Portfolio;
-import com.revature.project2.repository.PortfolioRepository;
+import com.revature.model.Portfolio;
+import com.revature.repository.PortfolioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

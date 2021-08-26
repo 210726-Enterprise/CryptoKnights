@@ -1,4 +1,4 @@
-package com.revature.project2.model;
+package com.revature.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,14 +21,17 @@ public class Portfolio {
     @Column(name="portfolio_name")
     private String porfolio_name;
 
-    @Column(name="bitcoin")
+    @Column(name="bitcoin", nullable = false)
     private double bitcoin;
 
-    @Column(name="ethereum")
+    @Column(name="ethereum", nullable = false)
     private double ethereum;
 
-    @Column(name="dogecoin")
+    @Column(name="dogecoin", nullable = false)
     private double dogecoin;
+
+    @Column(name="usd", nullable = false)
+    private double usd;
 
     @OneToMany(mappedBy = "portfolio")
     private List<Transaction> transactions;

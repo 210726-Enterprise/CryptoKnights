@@ -1,7 +1,7 @@
-package com.revature.project2.controller;
+package com.revature.controller;
 
-import com.revature.project2.model.Portfolio;
-import com.revature.project2.service.PortfolioService;
+import com.revature.model.Portfolio;
+import com.revature.service.PortfolioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
