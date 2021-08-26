@@ -1,4 +1,4 @@
-package com.revature.project2.model;
+package com.revature.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

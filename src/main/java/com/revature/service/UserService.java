@@ -1,7 +1,7 @@
-package com.revature.project2.service;
+package com.revature.service;
 
-import com.revature.project2.model.User;
-import com.revature.project2.repository.UserRepository;
+import com.revature.model.User;
+import com.revature.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
