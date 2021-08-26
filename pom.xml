@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.revature</groupId>
-	<artifactId>Project2</artifactId>
+	<artifactId>CryptoKnights</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Project 2</name>
-	<description>Demo project for Spring Boot</description>
+	<name>CryptoKnights</name>
+	<description>Lightweight app for buying selling and exchanging the most popular cryptocurrencies on the market.</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
