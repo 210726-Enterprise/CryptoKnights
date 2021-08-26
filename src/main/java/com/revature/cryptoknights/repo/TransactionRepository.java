@@ -1,6 +1,6 @@
-package com.revature.repo;
+package com.revature.cryptoknights.repo;
 
-import com.revature.model.Transaction;
+import com.revature.cryptoknights.model.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

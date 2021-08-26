@@ -1,4 +1,4 @@
-package com.revature.model;
+package com.revature.cryptoknights.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

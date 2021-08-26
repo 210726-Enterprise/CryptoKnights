@@ -1,7 +1,7 @@
-package com.revature.service;
+package com.revature.cryptoknights.service;
 
-import com.revature.model.User;
-import com.revature.repository.UserRepository;
+import com.revature.cryptoknights.repository.UserRepository;
+import com.revature.cryptoknights.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

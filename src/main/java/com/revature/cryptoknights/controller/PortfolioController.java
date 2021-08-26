@@ -1,7 +1,7 @@
-package com.revature.controller;
+package com.revature.cryptoknights.controller;
 
-import com.revature.model.Portfolio;
-import com.revature.service.PortfolioService;
+import com.revature.cryptoknights.model.Portfolio;
+import com.revature.cryptoknights.service.PortfolioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

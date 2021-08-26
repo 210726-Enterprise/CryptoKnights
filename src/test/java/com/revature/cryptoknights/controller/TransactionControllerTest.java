@@ -1,4 +1,4 @@
-package com.revature.services;
+package com.revature.cryptoknights.controller;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TransactionServicesTest
+class TransactionControllerTest
 {
 
     @BeforeEach
@@ -20,12 +20,12 @@ class TransactionServicesTest
     }
 
     @Test
-    void saveTransaction()
+    void getAllTransactions()
     {
     }
 
     @Test
-    void getAllTransactions()
+    void createTransaction()
     {
     }
 }
