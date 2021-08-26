@@ -4,9 +4,11 @@ import com.revature.model.Transaction;
 import com.revature.services.TransactionServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequestMapping("/api")
 @Controller
 public class TransactionController
 {
@@ -18,12 +20,16 @@ public class TransactionController
         this.transactionServices = transactionServices;
     }
 
-    public List<Transaction> getAllTransactions()
+    @GetMapping
+    public @ResponseBody
+    List<Transaction> getAllTransactions()
     {
         return transactionServices.getAllTransactions();
     }
 
-    public Transaction createTransaction(Transaction transaction)
+    @PostMapping
+    public @ResponseBody
+    Transaction createTransaction(@RequestBody Transaction transaction)
     {
         return transactionServices.saveTransaction(transaction);
     }
