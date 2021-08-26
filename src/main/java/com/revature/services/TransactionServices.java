@@ -23,10 +23,10 @@ public class TransactionServices
         return transactionRepository.save(transaction);
     }
 
-    public List<Transaction> getAllTransaction()
+    public List<Transaction> getAllTransactions()
     {
         return transactionRepository.findAll();
     }
 
-    
+
 }
