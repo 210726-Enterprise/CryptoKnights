@@ -1,4 +1,4 @@
-package com.revature.cryptoknights.services;
+package com.revature.cryptoknights.service;
 
 import com.revature.cryptoknights.model.Transaction;
 import com.revature.cryptoknights.repo.TransactionRepository;

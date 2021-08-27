@@ -1,4 +1,4 @@
-package com.revature.cryptoknights.repository;
+package com.revature.cryptoknights.repo;
 
 
 import com.revature.cryptoknights.model.User;
