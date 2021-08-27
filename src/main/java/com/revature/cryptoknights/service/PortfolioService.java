@@ -1,7 +1,7 @@
-package com.revature.service;
+package com.revature.cryptoknights.service;
 
-import com.revature.model.Portfolio;
-import com.revature.repository.PortfolioRepository;
+import com.revature.cryptoknights.repo.PortfolioRepository;
+import com.revature.cryptoknights.model.Portfolio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

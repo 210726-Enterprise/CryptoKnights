@@ -1,7 +1,7 @@
-package com.revature.controller;
+package com.revature.cryptoknights.controller;
 
-import com.revature.model.User;
-import com.revature.service.UserService;
+import com.revature.cryptoknights.service.UserService;
+import com.revature.cryptoknights.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

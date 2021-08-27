@@ -1,7 +1,7 @@
-package com.revature.controller;
+package com.revature.cryptoknights.controller;
 
-import com.revature.model.Transaction;
-import com.revature.services.TransactionServices;
+import com.revature.cryptoknights.model.Transaction;
+import com.revature.cryptoknights.service.TransactionServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
