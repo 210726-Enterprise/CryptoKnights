@@ -17,20 +17,18 @@ class TransactionTest
     private Transaction testTransaction;
 
     @MockBean
-    private Portfolio mockPortfolio1;
-
-    @MockBean
-    private Portfolio mockPortfolio2;
-
-    @MockBean
     private LocalDateTime mockLocalDateTime1;
 
     @MockBean
     private LocalDateTime mockLocalDateTime2;
 
+    private Portfolio mockPortfolio1;
+
     @BeforeEach
     void setUp()
     {
+        mockPortfolio1 = new Portfolio();
+
         testTransaction.setTransactionId(1);
         testTransaction.setTransactionDateTime(mockLocalDateTime1);
         testTransaction.setTransactionInCurrency("testCurrencyIn");
@@ -97,6 +95,7 @@ class TransactionTest
     @Test
     void setPortfolio()
     {
+        Portfolio mockPortfolio2 = new Portfolio();
         testTransaction.setPortfolio(mockPortfolio2);
         assertEquals(testTransaction.getPortfolio(), mockPortfolio2);
     }
