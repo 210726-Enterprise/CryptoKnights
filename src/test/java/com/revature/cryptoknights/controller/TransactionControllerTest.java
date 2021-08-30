@@ -39,7 +39,6 @@ class TransactionControllerTest
     private LocalDateTime mockLocalDateTime;
     
     List<Transaction> transactionList;
-
     Transaction transaction;
 
     @BeforeEach
