@@ -20,7 +20,7 @@ public class Transaction
     private int transactionId;
 
     @ManyToOne
-    @JoinColumn(name = "portfolio_id")
+    @JoinColumn(name = "portfolio_Id")
     private Portfolio portfolio;
 
     @Column(name = "transaction_datetime")
