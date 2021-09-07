@@ -1,6 +1,7 @@
 package com.revature.cryptoknights.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,6 +42,7 @@ public class Portfolio {
     private double usd;
 
     @OneToMany(mappedBy = "portfolio")
+    @JsonIdentityReference(alwaysAsId = true)
     private List<Transaction> transactions;
 
     @ManyToMany
@@ -49,6 +51,6 @@ public class Portfolio {
             joinColumns=@JoinColumn(name="portfolio_id", referencedColumnName = "portfolio_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     )
+    @JsonIdentityReference(alwaysAsId = true)
     private List<User> users;
-
 }
