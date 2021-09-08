@@ -1,0 +1,15 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+  build:
+    commands:
+      - mvn clean
+  post_build:
+    commands:
+      - mvn package
+      - mv target/CryptoKnights-0.1.war ROOT.war
+artifacts:
+  files:
+    - ROOT.war
