@@ -3,7 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-
+!target/CryptoKnights-0.1.war
 ### STS ###
 .apt_generated
 .classpath
@@ -20,7 +20,7 @@ target/
 *.ipr
 
 ### Properties ###
-src/main/resources/application.properties
+
 
 ### NetBeans ###
 /nbproject/private/
@@ -35,4 +35,4 @@ build/
 ### VS Code ###
 .vscode/
 
-src/main/resources/application.properties
+
