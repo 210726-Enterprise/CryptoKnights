@@ -32,7 +32,7 @@ public class Transaction
     private Portfolio portfolio;
 
     @Column(name = "transaction_datetime")
-    private LocalDateTime transactionDateTime;
+    private LocalDateTime transactionDateTime = LocalDateTime.now();
 
     @Column(name = "transaction_in_currency")
     private String transactionInCurrency;
