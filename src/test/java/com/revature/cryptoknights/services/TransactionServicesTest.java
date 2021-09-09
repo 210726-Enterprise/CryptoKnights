@@ -8,6 +8,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.time.LocalDateTime;
@@ -18,6 +20,8 @@ import static org.mockito.Mockito.when;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
+@AutoConfigureMockMvc
 class TransactionServicesTest
 {
     @Autowired
@@ -26,7 +30,6 @@ class TransactionServicesTest
     @MockBean
     private TransactionRepository mockTransactionRepository;
 
-    @MockBean
     private LocalDateTime mockLocalDateTime;
 
     private List<Transaction> transactionList;
@@ -35,6 +38,9 @@ class TransactionServicesTest
     @BeforeEach
     void setUp()
     {
+        mockLocalDateTime = LocalDateTime.now();
+
+        transaction = new Transaction();
         transaction.setTransactionId(1);
         transaction.setTransactionDateTime(mockLocalDateTime);
         transaction.setTransactionInCurrency("testCurrencyIn");
