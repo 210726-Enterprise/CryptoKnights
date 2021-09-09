@@ -1,6 +1,5 @@
 package com.revature.cryptoknights.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.cryptoknights.model.Portfolio;
 import com.revature.cryptoknights.model.Transaction;
@@ -46,7 +45,6 @@ class TransactionControllerTest
     @BeforeEach
     void setUp()
     {
-        System.out.println(transactionControllerTest);
         mockMvc = MockMvcBuilders.standaloneSetup(transactionControllerTest).build();
         Portfolio mockPortfolio = new Portfolio();
         mockPortfolio.setPortfolioId(1);
