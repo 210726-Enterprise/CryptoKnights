@@ -10,6 +10,7 @@ import java.util.List;
 
 @RequestMapping("/api")
 @Controller
+@CrossOrigin
 public class TransactionController
 {
     TransactionServices transactionServices;
