@@ -41,6 +41,7 @@ public class User {
     @Column(name="email", unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "user")
+    @ManyToMany(mappedBy = "users")
+    @JsonIdentityReference(alwaysAsId = true)
     List<Portfolio> portfolios;
 }

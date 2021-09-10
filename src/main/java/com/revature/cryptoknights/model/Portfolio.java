@@ -42,9 +42,16 @@ public class Portfolio {
     private double usd;
 
     @OneToMany(mappedBy = "portfolio")
+    @JsonIdentityReference(alwaysAsId = true)
     private List<Transaction> transactions;
 
-    @ManyToOne
-    @JoinColumn(name="userId")
-    private User user;
+
+    @ManyToMany
+    @JoinTable(
+            name="users_portfolios",
+            joinColumns=@JoinColumn(name="portfolio_id", referencedColumnName = "portfolio_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    )
+    @JsonIdentityReference(alwaysAsId = true)
+    private List<User> users;
 }
