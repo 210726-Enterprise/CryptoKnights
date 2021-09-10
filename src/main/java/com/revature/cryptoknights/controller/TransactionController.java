@@ -22,16 +22,16 @@ public class TransactionController
         this.transactionServices = transactionServices;
     }
 
-//    @GetMapping
-//    public @ResponseBody
-//    List<Transaction> getAllTransactions()
-//    {
-//        return transactionServices.getAllTransactions();
-//    }
-
     @GetMapping
     public @ResponseBody
-    List<Transaction> getAllTransactionsByPortfolio(@RequestParam Portfolio portfolio)
+    List<Transaction> getAllTransactions()
+    {
+        return transactionServices.getAllTransactions();
+    }
+
+    @GetMapping("/{portfolio}")
+    public @ResponseBody
+    List<Transaction> getAllTransactionsByPortfolio(@PathVariable Portfolio portfolio)
     {
         return transactionServices.getAllByPortfolio(portfolio);
     }
