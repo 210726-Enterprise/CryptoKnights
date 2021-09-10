@@ -45,5 +45,5 @@ public class Portfolio {
 
     @ManyToOne
     @JoinColumn(name="userId")
-    private List<User> user;
+    private User user;
 }
