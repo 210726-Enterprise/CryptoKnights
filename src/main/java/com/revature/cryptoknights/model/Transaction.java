@@ -1,8 +1,6 @@
 package com.revature.cryptoknights.model;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -45,4 +43,12 @@ public class Transaction
 
     @Column(name = "transaction_out_amount")
     private double transactionOutAmount;
+
+    @JsonSetter("portfolio")
+    public void setPortfolio(int portfolioId)
+    {
+        Portfolio portfolio = new Portfolio();
+        portfolio.setPortfolioId(portfolioId);
+        this.portfolio = portfolio;
+    }
 }
