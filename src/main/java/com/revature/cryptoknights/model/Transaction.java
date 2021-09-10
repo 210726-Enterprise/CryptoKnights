@@ -16,7 +16,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "transactionId"
+        property = "transactionId",
+        scope = Transaction.class
 )
 public class Transaction
 {
