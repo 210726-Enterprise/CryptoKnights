@@ -1,13 +1,12 @@
 package com.revature.cryptoknights.model;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -44,4 +43,17 @@ public class User {
     @ManyToMany(mappedBy = "users")
     @JsonIdentityReference(alwaysAsId = true)
     List<Portfolio> portfolios;
+
+    @JsonSetter("portfolios")
+    public void setPortfolios(int[] portfolioIds)
+    {
+        List<Portfolio> newPortfolios  = new ArrayList<>();
+        for(int i = 0; i < portfolioIds.length; i++)
+        {
+            Portfolio portfolio = new Portfolio();
+            portfolio.setPortfolioId(portfolioIds[i]);
+            newPortfolios.add(portfolio);
+        }
+        this.portfolios = newPortfolios;
+    }
 }
