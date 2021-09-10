@@ -43,11 +43,7 @@ public class Portfolio {
     @OneToMany(mappedBy = "portfolio")
     private List<Transaction> transactions;
 
-    @ManyToMany
-    @JoinTable(
-            name="users_portfolios",
-            joinColumns=@JoinColumn(name="portfolio_id", referencedColumnName = "portfolio_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    )
-    private List<User> users;
+    @ManyToOne
+    @JoinColumn(name="userId")
+    private List<User> user;
 }

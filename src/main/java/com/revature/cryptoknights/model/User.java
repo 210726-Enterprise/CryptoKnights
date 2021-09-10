@@ -40,6 +40,6 @@ public class User {
     @Column(name="email", unique = true)
     private String email;
 
-    @ManyToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "user")
     List<Portfolio> portfolios;
 }
