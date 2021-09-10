@@ -1,5 +1,6 @@
 package com.revature.cryptoknights.service;
 
+import com.revature.cryptoknights.model.Portfolio;
 import com.revature.cryptoknights.model.Transaction;
 import com.revature.cryptoknights.repo.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,8 @@ public class TransactionServices
         return transactionRepository.findAll();
     }
 
-
+    public List<Transaction> getAllByPortfolio(Portfolio portfolio)
+    {
+        return transactionRepository.findAllByPortfolioOrderByTransactionDateTimeDesc(portfolio);
+    }
 }

@@ -1,5 +1,6 @@
 package com.revature.cryptoknights.controller;
 
+import com.revature.cryptoknights.model.Portfolio;
 import com.revature.cryptoknights.model.Transaction;
 import com.revature.cryptoknights.service.TransactionServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,13 @@ public class TransactionController
     List<Transaction> getAllTransactions()
     {
         return transactionServices.getAllTransactions();
+    }
+
+    @GetMapping("/{portfolio}")
+    public @ResponseBody
+    List<Transaction> getAllTransactionsByPortfolio(@PathVariable Portfolio portfolio)
+    {
+        return transactionServices.getAllByPortfolio(portfolio);
     }
 
     @PostMapping
