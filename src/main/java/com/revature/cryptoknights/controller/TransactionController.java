@@ -1,5 +1,6 @@
 package com.revature.cryptoknights.controller;
 
+import com.revature.cryptoknights.dto.TransactionDTO;
 import com.revature.cryptoknights.model.Portfolio;
 import com.revature.cryptoknights.model.Transaction;
 import com.revature.cryptoknights.service.TransactionServices;
@@ -38,8 +39,9 @@ public class TransactionController
 
     @PostMapping
     public @ResponseBody
-    Transaction createTransaction(@RequestBody Transaction transaction)
+    Transaction createTransaction(@RequestBody TransactionDTO transaction)
     {
-        return transactionServices.saveTransaction(transaction);
+        Transaction newTransaction = transaction.mapToTransaction();
+        return transactionServices.saveTransaction(newTransaction);
     }
 }

@@ -1,5 +1,6 @@
 package com.revature.cryptoknights.controller;
 
+import com.revature.cryptoknights.dto.PortfolioDTO;
 import com.revature.cryptoknights.model.Portfolio;
 import com.revature.cryptoknights.service.PortfolioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,10 @@ public class PortfolioController {
 
     @PostMapping
     public @ResponseBody
-    Portfolio createPortfolio(@RequestBody Portfolio portfolio) {
-        return service.savePortfolio(portfolio);
+    Portfolio createPortfolio(@RequestBody PortfolioDTO portfolio)
+    {
+        Portfolio newPortfolio = portfolio.mapToPortfolio();
+        return service.savePortfolio(newPortfolio);
     }
 
     @DeleteMapping("/{id}")
@@ -49,7 +52,9 @@ public class PortfolioController {
 
     @PutMapping
     public @ResponseBody
-    Portfolio updatePortfolio(@RequestBody Portfolio portfolio) {
-        return service.savePortfolio(portfolio);
+    Portfolio updatePortfolio(@RequestBody PortfolioDTO portfolio)
+    {
+        Portfolio updatedPortfolio = portfolio.mapToPortfolio();
+        return service.savePortfolio(updatedPortfolio);
     }
 }

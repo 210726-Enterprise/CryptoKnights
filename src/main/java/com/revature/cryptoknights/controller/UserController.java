@@ -1,5 +1,6 @@
 package com.revature.cryptoknights.controller;
 
+import com.revature.cryptoknights.dto.UserDTO;
 import com.revature.cryptoknights.service.UserService;
 import com.revature.cryptoknights.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +43,10 @@ public class UserController {
 
     @PostMapping
     public @ResponseBody
-    User createUser(@RequestBody User u){
-        return userService.saveUser(u);
+    User createUser(@RequestBody UserDTO u)
+    {
+        User newUser = u.mapToUser();
+        return userService.saveUser(newUser);
     }
 
     @DeleteMapping("/{id}")
@@ -55,8 +58,10 @@ public class UserController {
 
     @PutMapping
     public @ResponseBody
-    User updateUser(@RequestBody User u){
-        return userService.saveUser(u);
+    User updateUser(@RequestBody UserDTO u)
+    {
+        User updatedUser = u.mapToUser();
+        return userService.saveUser(updatedUser);
     }
 }
 
