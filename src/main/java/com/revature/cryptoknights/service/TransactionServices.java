@@ -29,6 +29,11 @@ public class TransactionServices
         return transactionRepository.findAll();
     }
 
+    public Transaction getTransactionById(int id)
+    {
+        return transactionRepository.findById(id).orElseThrow(RuntimeException::new);
+    }
+
     public List<Transaction> getAllByPortfolio(Portfolio portfolio)
     {
         return transactionRepository.findAllByPortfolioOrderByTransactionDateTimeDesc(portfolio);
