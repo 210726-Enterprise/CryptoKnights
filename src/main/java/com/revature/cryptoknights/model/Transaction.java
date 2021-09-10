@@ -28,7 +28,6 @@ public class Transaction
 
     @ManyToOne
     @JoinColumn(name = "portfolio_id")
-    @JsonIdentityReference(alwaysAsId = true)
     private Portfolio portfolio;
 
     @Column(name = "transaction_datetime")

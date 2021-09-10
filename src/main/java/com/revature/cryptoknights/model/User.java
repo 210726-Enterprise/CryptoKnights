@@ -42,6 +42,5 @@ public class User {
     private String email;
 
     @ManyToMany(mappedBy = "users")
-    @JsonIdentityReference(alwaysAsId = true)
     List<Portfolio> portfolios;
 }
