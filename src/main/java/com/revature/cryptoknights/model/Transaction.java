@@ -1,5 +1,8 @@
 package com.revature.cryptoknights.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,6 +15,10 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "transactionId"
+)
 public class Transaction
 {
     @Id
@@ -20,11 +27,12 @@ public class Transaction
     private int transactionId;
 
     @ManyToOne
-    @JoinColumn(name = "portfolio_Id")
+    @JoinColumn(name = "portfolio_id")
+    @JsonIdentityReference(alwaysAsId = true)
     private Portfolio portfolio;
 
     @Column(name = "transaction_datetime")
-    private LocalDateTime transactionDateTime;
+    private LocalDateTime transactionDateTime = LocalDateTime.now();
 
     @Column(name = "transaction_in_currency")
     private String transactionInCurrency;

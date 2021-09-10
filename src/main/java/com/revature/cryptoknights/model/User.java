@@ -1,19 +1,24 @@
 package com.revature.cryptoknights.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.util.List;
-
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="users")
-
 @Getter
 @Setter
 @NoArgsConstructor
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "userId"
+)
 public class User {
 
     @Id
@@ -37,5 +42,6 @@ public class User {
     private String email;
 
     @ManyToMany(mappedBy = "users")
+    @JsonIdentityReference(alwaysAsId = true)
     List<Portfolio> portfolios;
 }
