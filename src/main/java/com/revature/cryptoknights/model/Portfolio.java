@@ -1,12 +1,13 @@
 package com.revature.cryptoknights.model;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -52,30 +53,4 @@ public class Portfolio {
     )
     @JsonIdentityReference(alwaysAsId = true)
     private List<User> users;
-
-    @JsonSetter("users")
-    public void setUsers(int[] userIds)
-    {
-        List<User> newUsers  = new ArrayList<>();
-        for(int i = 0; i < userIds.length; i++)
-        {
-            User user = new User();
-            user.setUserId(userIds[i]);
-            newUsers.add(user);
-        }
-        this.users = newUsers;
-    }
-
-    @JsonSetter("transactions")
-    public void setTransactions(int[] transactionIds)
-    {
-        List<Transaction> newTransactions  = new ArrayList<>();
-        for(int i = 0; i < transactionIds.length; i++)
-        {
-            Transaction transaction = new Transaction();
-            transaction.setTransactionId(transactionIds[i]);
-            newTransactions.add(transaction);
-        }
-        this.transactions = newTransactions;
-    }
 }
