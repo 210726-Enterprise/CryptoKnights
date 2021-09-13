@@ -20,8 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -52,7 +51,6 @@ class TransactionControllerTest
 
         transaction = new Transaction();
         transaction.setTransactionId(1);
-        transaction.setTransactionDateTime(mockLocalDateTime);
         transaction.setTransactionInCurrency("testCurrencyIn");
         transaction.setTransactionInAmount(100);
         transaction.setTransactionOutCurrency("testCurrencyOut");
@@ -73,16 +71,16 @@ class TransactionControllerTest
     {
         when(mockTransactionServices.getAllTransactions()).thenReturn(transactionList);
 
-        mockMvc.perform(get("/transaction"))
+        mockMvc.perform(get("/transactions"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").isNotEmpty())
                 .andExpect(jsonPath("$[0].transactionId").value(1))
                 .andExpect(jsonPath("$[0].portfolio").value(1))
-                .andExpect(jsonPath("$[0].transactionDateTime").value(LocalDateTime.now().toString()))
                 .andExpect(jsonPath("$[0].transactionInCurrency").value("testCurrencyIn"))
                 .andExpect(jsonPath("$[0].transactionInAmount").value(100))
                 .andExpect(jsonPath("$[0].transactionOutCurrency").value("testCurrencyOut"))
                 .andExpect(jsonPath("$[0].transactionOutAmount").value(200))
+                .andExpect(jsonPath("$[0].portfolio").value(1))
                 .andReturn();
     }
 
@@ -91,18 +89,18 @@ class TransactionControllerTest
     {
         when(mockTransactionServices.saveTransaction(transaction)).thenReturn(transaction);
 
-        mockMvc.perform(put("/transaction")
+        mockMvc.perform(post("/transactions")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(transaction)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").exists())
                 .andExpect(jsonPath("$.transactionId").value(1))
                 .andExpect(jsonPath("$.portfolio").value(1))
-                .andExpect(jsonPath("$.transactionDateTime").value(LocalDateTime.now().toString()))
                 .andExpect(jsonPath("$.transactionInCurrency").value("testCurrencyIn"))
                 .andExpect(jsonPath("$.transactionInAmount").value(100))
                 .andExpect(jsonPath("$.transactionOutCurrency").value("testCurrencyOut"))
                 .andExpect(jsonPath("$.transactionOutAmount").value(200))
+                .andExpect(jsonPath("$.portfolio").value(1))
                 .andReturn();
     }
 }
