@@ -2,7 +2,7 @@
 
 ## Project Description
 
-Lightweight app for simulating buying, selling, and exchanging the most popular cryptocurrencies on the market. This project makes use of the CoinGecko API (https://www.coingecko.com/en/api). This is the REST API portion of this project. To view the single-page application portion of this project, please go here - https://github.com/210726-Enterprise/CryptoKnights-Webapp.
+Lightweight app for simulating buying, selling, and exchanging the most popular cryptocurrencies on the market. This project makes use of the CoinGecko API (https://www.coingecko.com/en/api). This is the REST API portion of this project. To view the single-page application portion of this project, please go here: https://github.com/210726-Enterprise/CryptoKnights-Webapp.
 
 ## Technologies Used
 
@@ -32,18 +32,72 @@ To-do list:
 
 ## Getting Started
    
-(include git clone command)
-(include all environment setup steps)
+1. To start, please clone both the back end and front end projects.
+   * back end - git clone https://github.com/210726-Enterprise/CryptoKnights.git
+   * front end - git clone https://github.com/210726-Enterprise/CryptoKnights-Webapp.git
+2. Create a database and schema.
+3. Open the back end project in IntelliJ.
+4. Open the application.properties file, found in the resources folder.
+5. Under Database Credentials, replace the information with the URL, username, and password for your database.
+![Screenshot (133)](https://user-images.githubusercontent.com/23224121/133861838-28f6cf7a-1dc4-4222-8997-eddefeb06b09.png)
+5. Under JPA Setting, "set spring.jpa.hibernate.ddl-auto" to true.
+   * This will create all the tables in the database. After starting the application once, you may switch this to update if you would like to persist the data between sessions.
+6. Open the CryptoKnightsApplication file and click the green arrow button on the left side of the screen next to "public class CryptoKnightsApplication". This will start a local Tomcat instance on the port http://localhost:8080/api.
+![Screenshot (135)](https://user-images.githubusercontent.com/23224121/133862576-7707f2b9-5dd8-4ea7-8b88-b48a20032f12.png)
+(What your console will look like if Tomcat was started up properly)
+![Screenshot (136)](https://user-images.githubusercontent.com/23224121/133862727-38a9ca69-4c0c-42a0-bf83-60ed653efda1.png)
 
-> Be sure to include BOTH Windows and Unix command  
-> Be sure to mention if the commands only work on a specific platform (eg. AWS, GCP)
-
-- All the `code` required to get started
-- Images of what it should look like
+The REST API should now be active. To setup the web application, please reference the "Getting Started" section on the web application repo's README, which can be found here: https://github.com/210726-Enterprise/CryptoKnights-Webapp.
 
 ## Usage
 
-> Here, you instruct other people on how to use your project after they’ve installed it. This would also be a good place to include screenshots of your project in action.
+To interface with the API through our web application, please reference the "Usage" section on the web application repo's README, which can be found here: https://github.com/210726-Enterprise/CryptoKnights-Webapp.
+
+If you would like to use our API directly, you can make HTTP requests through Postman. The endpoints are listed below
+* Portfolios 
+   * http://localhost:8080/api/portfolios
+      * supports GET, POST, and PUT requests
+      * for POST and PUT requests, the body must have a JSON object, which may or may not contain these fields
+         * portfolioId (required for PUT requests)
+         * porfolio_name
+         * bitcoin
+         * ethereum
+         * dogecoin
+         * usd
+         * transactions - a list of transaction id numbers
+   * http://localhost:8080/api/portfolios/{id}
+      * supports GET and DELETE requests
+      * replace {id} with the id of the specific portfolio you're looking for 
+* Users
+   * http://localhost:8080/api/users/
+      * supports GET, POST, and PUT requests
+      * for POST and PUT requests, the body must have a JSON object, which may or may not contain these fields
+         * userId (required for PUT requests)
+         * username
+         * password
+         * firstName
+         * lastName
+         * email
+         * portfolios - a list of portfolio id numbers
+   * http://localhost:8080/api/users/{id}
+      * supports GET and DELETE requests
+      * replace {id} with the id of the specific user you're looking for
+   * http://localhost:8080/api/users/username/{username}
+      * supports GET requests
+      * replace {username} with the username of the specific user you're looking for
+* Transactions 
+   * http://localhost:8080/api/transactions
+      * supports GET and POST requests
+      * for POST and PUT requests, the body must have a JSON object, which may or may not contain these fields 
+         * transactionDateTime
+         * transactionInCurrency
+         * transactionInAmount
+         * transactionOutCurrency
+         * transactionOutAmount
+         * portfolio - the portfolio id number that this transaction belongs to
+   * http://localhost:8080/api/transactions/{portfolioId}
+      * supports GET and DELETE requests
+      * replace {id} with the id of the portfolio whose transaction history you'd like to view
 
 ## Contributors
 
@@ -51,7 +105,3 @@ To-do list:
 * Jared Mullins - https://github.com/jwmullins92
 * Jacob Brummett - https://github.com/Rufus1911
 * Alwyn Zhang - https://github.com/AlwynZ
-
-## License
-
-This project uses the following license: [<license_name>](<link>).
