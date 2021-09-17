@@ -32,9 +32,7 @@ To-do list:
 
 ## Getting Started
    
-1. To start, please clone both the back end and front end projects.
-   * back end - git clone https://github.com/210726-Enterprise/CryptoKnights.git
-   * front end - git clone https://github.com/210726-Enterprise/CryptoKnights-Webapp.git
+1. To start, please clone the project - git clone https://github.com/210726-Enterprise/CryptoKnights.git
 2. Create a database and schema.
 3. Open the back end project in IntelliJ.
 4. Open the application.properties file, found in the resources folder.
